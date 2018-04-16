@@ -6,7 +6,7 @@ MenuBar {
         title: qsTr("文件")
         Action {
             text: qsTr("退出")
-            onTriggered: close()
+            onTriggered: Qt.quit()
         }
     }
 
