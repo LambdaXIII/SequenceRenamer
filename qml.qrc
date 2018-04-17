@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>MainMenuBar.qml</file>
+        <file>MainContent.qml</file>
+        <file>MainContentForm.ui.qml</file>
     </qresource>
 </RCC>
