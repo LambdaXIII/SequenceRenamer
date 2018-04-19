@@ -17,7 +17,9 @@ MainContentForm {
         anchors.bottomMargin: 370
     }
 
-    function renameStarted() {//        progressBar.indeterminate = true
+    function renameStarted() {
+        //        progressBar.indeterminate = true
+        mainText.text = qsTr("正在工作")
     }
 
     function renameFinished() {

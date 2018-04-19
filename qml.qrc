@@ -6,5 +6,6 @@
         <file>MainContentForm.ui.qml</file>
         <file>MainToolBar.qml</file>
         <file>TitleBar.qml</file>
+        <file>window_overlay.png</file>
     </qresource>
 </RCC>

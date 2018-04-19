@@ -23,10 +23,11 @@ Item {
 
     Text {
         id: titleText
-        text: qsTr("Text")
+        text: qsTr("窗口标题")
+        font.italic: true
         verticalAlignment: Text.AlignVCenter
         anchors.left: parent.left
-        anchors.leftMargin: 28
+        anchors.leftMargin: 8
         anchors.top: parent.top
         anchors.topMargin: 8
         font.pixelSize: 12
@@ -39,6 +40,7 @@ Item {
         width: 30
         height: 30
         text: qsTr("退")
+        focusPolicy: Qt.NoFocus
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 8
         anchors.right: parent.right
@@ -52,9 +54,16 @@ Item {
         width: 30
         height: 30
         text: qsTr("帮")
+        focusPolicy: Qt.NoFocus
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 8
         anchors.right: parent.right
         anchors.rightMargin: 44
+    }
+
+    Image {
+        id: image
+        anchors.fill: parent
+        source: "window_overlay.png"
     }
 }
