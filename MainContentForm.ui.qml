@@ -5,6 +5,7 @@ Item {
     id: item1
     width: 400
     height: 400
+    property alias helpButton: helpButton
     property alias quitButton: quitButton
     property alias titleText: titleText
     property alias mainText: mainText

@@ -1,7 +1,15 @@
 import QtQuick 2.9
 import SequenceRenamer.OwnApi 1.0
+import QtQuick.Dialogs 1.2
 
 MainContentForm {
+    AboutDialog {
+        id: aboutDialog
+    }
+
+    helpButton.onClicked: {
+        aboutDialog.open()
+    }
     quitButton.onClicked: Qt.quit()
 
     Component.onCompleted: {

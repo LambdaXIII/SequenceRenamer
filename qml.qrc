@@ -1,11 +1,10 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>MainMenuBar.qml</file>
         <file>MainContent.qml</file>
         <file>MainContentForm.ui.qml</file>
-        <file>MainToolBar.qml</file>
         <file>TitleBar.qml</file>
         <file>window_overlay.png</file>
+        <file>AboutDialog.qml</file>
     </qresource>
 </RCC>
