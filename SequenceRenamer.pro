@@ -1,4 +1,4 @@
-QT += quick
+QT += quick concurrent
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
@@ -12,9 +12,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    brain.cpp \
+    renameworker.cpp
 
 RESOURCES += qml.qrc
+
+ICON = ICON.icns
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -27,4 +31,9 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES += .gitignore
+DISTFILES += .gitignore \
+m.astylerc
+
+HEADERS += \
+    brain.h \
+    renameworker.h
