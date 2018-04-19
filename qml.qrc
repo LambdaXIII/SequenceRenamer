@@ -4,5 +4,7 @@
         <file>MainMenuBar.qml</file>
         <file>MainContent.qml</file>
         <file>MainContentForm.ui.qml</file>
+        <file>MainToolBar.qml</file>
+        <file>TitleBar.qml</file>
     </qresource>
 </RCC>

@@ -1,15 +1,28 @@
-import QtQuick 2.4
+import QtQuick 2.9
 import SequenceRenamer.OwnApi 1.0
 
 MainContentForm {
+    quitButton.onClicked: Qt.quit()
 
-    function renameStarted() {
-        progressBar.indeterminate = true
+    Component.onCompleted: {
+        titleText.text = mainWindow.title
+    }
+
+    TitleBar {
+        width: parent.width
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 370
+    }
+
+    function renameStarted() {//        progressBar.indeterminate = true
     }
 
     function renameFinished() {
         mainText.text = qsTr("同化完成")
-        progressBar.value = 1.0
+        //        progressBar.value = 1.0
     }
 
     //    mouseArea.onClicked: changeText()
@@ -25,7 +38,7 @@ MainContentForm {
                 var xs = drag.urls
                 mainText.text = qsTr("你拖动了%1个东东\n松开手手，立即开始").replace("%1",
                                                                      xs.length)
-                progressBar.value = 0.2
+                //                progressBar.value = 0.2
             }
         }
         onExited: {

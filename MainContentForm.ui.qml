@@ -5,24 +5,9 @@ Item {
     id: item1
     width: 400
     height: 400
-    property alias progressBar: progressBar
+    property alias quitButton: quitButton
+    property alias titleText: titleText
     property alias mainText: mainText
-    property alias mouseArea: mouseArea
-
-    ProgressBar {
-        id: progressBar
-        x: 0
-        y: 350
-        height: 10
-        indeterminate: true
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 40
-        anchors.right: parent.right
-        anchors.rightMargin: 0
-        anchors.left: parent.left
-        anchors.leftMargin: 0
-        value: 0
-    }
 
     Text {
         id: mainText
@@ -36,9 +21,40 @@ Item {
         font.pixelSize: 20
     }
 
-    MouseArea {
-        id: mouseArea
-        hoverEnabled: false
-        anchors.fill: parent
+    Text {
+        id: titleText
+        text: qsTr("Text")
+        verticalAlignment: Text.AlignVCenter
+        anchors.left: parent.left
+        anchors.leftMargin: 28
+        anchors.top: parent.top
+        anchors.topMargin: 8
+        font.pixelSize: 12
+    }
+
+    Button {
+        id: quitButton
+        x: 362
+        y: 362
+        width: 30
+        height: 30
+        text: qsTr("退")
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 8
+        anchors.right: parent.right
+        anchors.rightMargin: 8
+    }
+
+    Button {
+        id: helpButton
+        x: 326
+        y: 362
+        width: 30
+        height: 30
+        text: qsTr("帮")
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 8
+        anchors.right: parent.right
+        anchors.rightMargin: 44
     }
 }
