@@ -5,6 +5,7 @@ Item {
     id: item1
     width: 400
     height: 400
+    property alias logoMouseArea: logoMouseArea
     property alias helpButton: helpButton
     property alias quitButton: quitButton
     property alias titleText: titleText
@@ -60,6 +61,25 @@ Item {
         anchors.bottomMargin: 8
         anchors.right: parent.right
         anchors.rightMargin: 44
+    }
+
+    Image {
+        id: paciLogo
+        x: 8
+        y: 365
+        width: 70
+        height: 27
+        anchors.left: parent.left
+        anchors.leftMargin: 8
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 8
+        fillMode: Image.PreserveAspectFit
+        source: "PaciLogo.png"
+
+        MouseArea {
+            id: logoMouseArea
+            anchors.fill: parent
+        }
     }
 
     Image {

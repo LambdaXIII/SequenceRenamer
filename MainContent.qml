@@ -3,6 +3,10 @@ import SequenceRenamer.OwnApi 1.0
 import QtQuick.Dialogs 1.2
 
 MainContentForm {
+    logoMouseArea.onClicked: {
+        Qt.openUrlExternally(
+                    "https://github.com/LambdaXIII/SequenceRenamer/releases")
+    }
     AboutDialog {
         id: aboutDialog
     }
