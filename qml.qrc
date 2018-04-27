@@ -7,5 +7,7 @@
         <file>window_overlay.png</file>
         <file>AboutDialog.qml</file>
         <file>PaciLogo.png</file>
+        <file>SetupDialog.qml</file>
+        <file>SetupDialogForm.ui.qml</file>
     </qresource>
 </RCC>

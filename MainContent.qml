@@ -3,22 +3,29 @@ import SequenceRenamer.OwnApi 1.0
 import QtQuick.Dialogs 1.2
 
 MainContentForm {
+    Component.onCompleted: {
+        titleText.text = mainWindow.title
+    }
+
+    Loader {
+        id: aboutDialog
+    }
+
+    SetupDialog {
+        id: setupDialog
+    }
+
     logoMouseArea.onClicked: {
         Qt.openUrlExternally(
                     "https://github.com/LambdaXIII/SequenceRenamer/releases")
     }
-    AboutDialog {
-        id: aboutDialog
-    }
+
+    setupButton.onClicked: setupDialog.show()
 
     helpButton.onClicked: {
-        aboutDialog.open()
+        aboutDialog.source = "AboutDialog.qml"
     }
     quitButton.onClicked: Qt.quit()
-
-    Component.onCompleted: {
-        titleText.text = mainWindow.title
-    }
 
     TitleBar {
         width: parent.width

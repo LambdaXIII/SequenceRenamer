@@ -5,6 +5,7 @@ Item {
     id: item1
     width: 400
     height: 400
+    property alias setupButton: setupButton
     property alias logoMouseArea: logoMouseArea
     property alias helpButton: helpButton
     property alias quitButton: quitButton
@@ -59,8 +60,8 @@ Item {
         focusPolicy: Qt.NoFocus
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 8
-        anchors.right: parent.right
-        anchors.rightMargin: 44
+        anchors.right: quitButton.left
+        anchors.rightMargin: 6
     }
 
     Image {
@@ -86,5 +87,18 @@ Item {
         id: image
         anchors.fill: parent
         source: "window_overlay.png"
+    }
+
+    Button {
+        id: setupButton
+        x: 287
+        y: 362
+        width: 30
+        height: 30
+        text: qsTr("设")
+        anchors.right: helpButton.left
+        anchors.rightMargin: 6
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 8
     }
 }

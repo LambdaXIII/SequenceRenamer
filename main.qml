@@ -16,7 +16,8 @@ Window {
     color: "transparent"
 
     flags: Qt.FramelessWindowHint | Qt.WindowSystemMenuHint
-           | Qt.WindowMinimizeButtonHint | Qt.Window | Qt.WindowStaysOnTopHint
+           | Qt.WindowMinimizeButtonHint | Qt.Window
+    //           | Qt.WindowStaysOnTopHint
 
     //    Material.theme: Material.Dark
     //    Material.accent: Material.Orange

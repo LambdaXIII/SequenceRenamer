@@ -8,8 +8,8 @@ MessageDialog {
     detailedText: qsTr("拖动多个文件夹到窗口里面，即可将在目录中以及所有子目录中的文件添加自己上级目录的名字作为前缀。对于忘记设定序列帧片段名称的情况非常有用。")
     width: 500
     icon: StandardIcon.Information
-    onAccepted: aboutDialog.close()
+    //    onAccepted: aboutDialog.close()
     modality: Qt.ApplicationModal
     standardButtons: StandardButton.Ok
-    //    Component.onCompleted: visible = true
+    Component.onCompleted: visible = true
 }
