@@ -25,7 +25,13 @@ bool Brain::isImportable(const QList<QUrl> &urls)
   return true;
 }
 
-void Brain::doIt(const QList<QUrl> &urls)
+void Brain::doIt(const QList<QUrl> &urls,
+                 bool usePrefix,
+                 bool prefixHead,
+                 const QString &prefixS,
+                 bool useSuffix,
+                 bool suffixLast,
+                 const QString &suffixS)
 {
 
   std::function<QString(QUrl)> u_to_s = [ = ](QUrl x) {
@@ -38,7 +44,11 @@ void Brain::doIt(const QList<QUrl> &urls)
   if (pathList.isEmpty())
     return;
 
-  RenameWorker *worker = new RenameWorker;
+  RenameWorker *worker = new RenameWorker(
+    usePrefix, prefixHead, prefixS,
+    useSuffix, suffixLast, suffixS
+  );
+
   worker->moveToThread(workThread);
   connect(workThread, &QThread::finished, worker, &RenameWorker::deleteLater);
   connect(worker, &RenameWorker::resultReady, this, &Brain::renameFinished);

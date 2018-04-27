@@ -5,6 +5,13 @@
 #include <QtConcurrent>
 #include <functional>
 
+RenameWorker::RenameWorker(bool _usePrefix, bool _prefixHead, const QString &_prefix, bool _useSuffix, bool _suffixLast, const QString &_suffix, QObject *parent)
+  : QObject(parent), usePrefix(_usePrefix), prefixAtHead(_prefixHead), prefixStr(_prefix),
+    useSuffix(_useSuffix), suffixAtLast(_suffixLast), suffixStr(_suffix) {}
+
+RenameWorker::RenameWorker(QObject *parent)
+  : QObject(parent) {}
+
 void RenameWorker::doWork(const QStringList &sourcePaths)
 {
   /*
@@ -26,7 +33,7 @@ void RenameWorker::doWork(const QStringList &sourcePaths)
 
   std::function<bool(QString)> rename_it = [ = ](QString path) {
     QFile f(path);
-    return f.rename(RenameWorker::getNewName(f));
+    return f.rename(getNewName(f));
   };
 
   QFuture<bool> res = QtConcurrent::mapped(sourcePaths, rename_it);
@@ -38,11 +45,17 @@ QString RenameWorker::getNewName(const QFile &f)
 {
   QFileInfo info(f);
 
-  QString middle = info.dir().dirName();
-  if (middle.isEmpty())
-    middle = "EMPTY";
+  QString head = info.dir().dirName().isEmpty() ? "EMPTY_" : (info.dir().dirName() + "_");
+  if (usePrefix) {
+    head = prefixAtHead ? (prefixStr + head) : (head + prefixStr);
+  }
 
-  QString completeNewName = middle + "_" + info.baseName() + "." + info.completeSuffix();
+  QString tail = info.completeSuffix().isEmpty() ? "" : ( "." + info.completeSuffix());
+  if (useSuffix) {
+    tail = suffixAtLast ? (tail + suffixStr) : (suffixStr + tail);
+  }
+
+  QString completeNewName = head + info.baseName() + tail;
 
   auto absDirPath = info.dir().absolutePath();
 

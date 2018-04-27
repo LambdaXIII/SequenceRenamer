@@ -28,7 +28,13 @@ public:
 
   Q_INVOKABLE static bool isImportable(const QList<QUrl> &urls);
 
-  Q_INVOKABLE void doIt(const QList<QUrl> &urls);
+  Q_INVOKABLE void doIt(const QList<QUrl> &urls,
+                        bool usePrefix,
+                        bool prefixHead,
+                        const QString &prefixS,
+                        bool useSuffix,
+                        bool suffixLast,
+                        const QString &suffixS);
 
   QThread *workThread;
 

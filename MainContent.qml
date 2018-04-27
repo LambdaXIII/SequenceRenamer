@@ -71,11 +71,11 @@ MainContentForm {
                 if (Brain.isImportable(url_list)) {
                     console.log("accepted", url_list.length)
 
-                    /*
-                    for (var i = 0; i < url_list.length; i++) {
-                        console.log(Brain.tryIt(url_list[i]))
-                    }*/
-                    Brain.doIt(url_list)
+                    Brain.doIt(url_list, setupDialog.use_prefix,
+                               setupDialog.prefix_at_head,
+                               setupDialog.prefix_txt, setupDialog.use_suffix,
+                               setupDialog.suffix_at_last,
+                               setupDialog.suffix_txt)
 
                     drop.accepted = true
                 }

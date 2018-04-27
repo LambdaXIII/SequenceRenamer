@@ -8,16 +8,21 @@ class RenameWorker : public QObject
 {
   Q_OBJECT
 public:
-//  explicit RenameWorker(QObject *parent = nullptr);
+  explicit RenameWorker(QObject *parent = nullptr);
+  explicit RenameWorker(bool _usePrefix, bool _prefixHead, const QString &_prefix, bool _useSuffix, bool _suffixLast, const QString &_suffix, QObject *parent = nullptr);
+
 protected:
-  static QString getNewName(const QFile &f);
+  bool usePrefix;
+  bool prefixAtHead;
+  QString prefixStr;
+  bool useSuffix;
+  bool suffixAtLast;
+  QString suffixStr;
+
+  QString getNewName(const QFile &f);
 
 signals:
   void resultReady(QList<bool> result);
-//  void totalCountChanged(int x);
-//  void currentCountChanged(int x);
-//  void errorDetected(QString path);
-//  void messageChanged(QString message);
 
 public slots:
   void doWork(const QStringList &sourcePaths);
