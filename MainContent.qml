@@ -37,16 +37,15 @@ MainContentForm {
     }
 
     function renameStarted() {
-        //        progressBar.indeterminate = true
+        setupButton.enabled = false
         mainText.text = qsTr("正在工作")
     }
 
     function renameFinished() {
+        setupButton.enabled = true
         mainText.text = qsTr("同化完成")
-        //        progressBar.value = 1.0
     }
 
-    //    mouseArea.onClicked: changeText()
     DropArea {
         Component.onCompleted: {
             Brain.onRenameStarted.connect(renameStarted)

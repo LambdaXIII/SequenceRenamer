@@ -12,6 +12,7 @@ Window {
 
         Component.onCompleted: {
 
+
             //            prefix_before_dir_switch.enabled = false
             //            prefix_field.enabled = false
             //            suffix_after_suffix_switch.enabled = false
@@ -31,4 +32,5 @@ Window {
     title: qsTr("前后缀设置")
     visible: false
     modality: Qt.ApplicationModal
+    flags: Qt.Dialog | Qt.CustomizeWindowHint | Qt.WindowTitleHint
 }
